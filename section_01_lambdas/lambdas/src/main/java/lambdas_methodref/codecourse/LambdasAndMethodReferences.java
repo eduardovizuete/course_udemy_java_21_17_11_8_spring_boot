@@ -17,7 +17,8 @@ public class LambdasAndMethodReferences {
 //        unboundMR();
         constructorMR();
     }
-    public static void constructorMR(){
+
+    public static void constructorMR() {
         // 'new' is used instead of a method; it instantiates an object.
         // Supplier is commonly used here.
 
@@ -31,7 +32,7 @@ public class LambdasAndMethodReferences {
         List<String> list = lambda.get();
         list.add("Lambda");
         System.out.println(list);   // [Lambda]
-        
+
         Supplier<List<String>> methodRef = ArrayList::new;
         list = methodRef.get();
         list.add("Method Reference");
@@ -50,9 +51,10 @@ public class LambdasAndMethodReferences {
         list.add("Method Reference");
         System.out.println(list);   // [Lambda]
     }
-    public static void unboundMR(){
+
+    public static void unboundMR() {
         // calling instance methods on a parameter
-        
+
         // Predicate<T>
         //    boolean test(T t)
         // The code on the next line translates into:
@@ -68,7 +70,7 @@ public class LambdasAndMethodReferences {
         Predicate<String> methodRef = String::isEmpty;
         System.out.println(methodRef.test(""));    // true    "".isEmpty(); 
         System.out.println(methodRef.test("xyz")); // false   "xyz".isEmpty();
-        
+
         BiPredicate<String, String> lambda2 = (str, prefix) -> str.startsWith(prefix);
         System.out.println(lambda2.test("Mr. Joe Bloggs", "Mr.")); // true  "Mr. Joe Bloggs".startsWith("Mr.")
         System.out.println(lambda2.test("Mr. Joe Bloggs", "Ms.")); // false "Mr. Joe Bloggs".startsWith("Ms.")
@@ -83,11 +85,12 @@ public class LambdasAndMethodReferences {
         System.out.println(methodRef2.test("Mr. Joe Bloggs", "Mr.")); // true   "Mr. Joe Bloggs".startsWith("Mr.")
         System.out.println(methodRef2.test("Mr. Joe Bloggs", "Ms.")); // false  "Mr. Joe Bloggs".startsWith("Ms.")
     }
-    public static void boundMR(){ 
+
+    public static void boundMR() {
         // calling instance methods on a particular object
 
         String name = "Mr. Joe Bloggs";
-        
+
         // Predicate<T>
         //    boolean test(T t)
         // The code on the next line translates into:
@@ -107,9 +110,10 @@ public class LambdasAndMethodReferences {
         System.out.println(methodRef.test("Mr."));// true
         System.out.println(methodRef.test("Ms."));// false
     }
-    public static void staticMR(){
-        List<Integer> list = Arrays.asList(1,2,7,4,5);
-        
+
+    public static void staticMR() {
+        List<Integer> list = Arrays.asList(1, 2, 7, 4, 5);
+
         // Consumer<T>
         //    void accept(T t)
         // The code on the next line translates into:
@@ -120,8 +124,8 @@ public class LambdasAndMethodReferences {
         System.out.println(list);   // [1, 2, 7, 4, 5]
         lambda.accept(list);        // execute the lambda
         System.out.println(list);   // [1, 2, 4, 5, 7]
-        
-        list = Arrays.asList(1,2,7,4,5); // unsort them again
+
+        list = Arrays.asList(1, 2, 7, 4, 5); // unsort them again
         // Collections.sort(List)
         // Collections.sort(List, Comparator)
         // Java infers what to do from the *context* i.e. we are creating a Consumer

@@ -17,7 +17,7 @@ public class LambdaAndMethodReferences {
         constructorMR();
     }
 
-    /**
+    /*
         1. Static method references:
              a. in staticMR(), declare a List of integers with 1, 2, 7, 4, and 5 as values.
              b. using a Consumer typed for List<Integer> and the Collections.sort static
@@ -32,20 +32,20 @@ public class LambdaAndMethodReferences {
              h. prove that the sort worked.
      */
     private static void staticMR() {
-        List<Integer> listOfNumbers = Arrays.asList(1,2,7,4,5);
+        List<Integer> listOfNumbers = Arrays.asList(1, 2, 7, 4, 5);
 
         Consumer<List<Integer>> sortListLambda = (list) -> Collections.sort(list);
         sortListLambda.accept(listOfNumbers);
         System.out.printf("staticMR() -> sortListLambda : %s %n", listOfNumbers);
 
-        listOfNumbers = Stream.of(1,2,7,4,5).collect(Collectors.toList());
+        listOfNumbers = Stream.of(1, 2, 7, 4, 5).collect(Collectors.toList());
 
         Consumer<List<Integer>> sortListMetRef = Collections::sort;
         sortListMetRef.accept(listOfNumbers);
         System.out.printf("staticMR() -> sortListMetRef : %s %n", listOfNumbers);
     }
 
-    /**
+    /*
         Bound method references (calling instance methods on a particular object):
             a. in boundMR(), declare a String variable called name and initialise it to “Mr. Joe
                 Bloggs”.
@@ -68,7 +68,7 @@ public class LambdaAndMethodReferences {
         System.out.printf("boundMR() -> predStartWithMetRef : %s starts with %s %s %n", name, "Ms.", predStartWithMetRef.test("Ms."));
     }
 
-    /**
+    /*
         Unbound method references (calling instance methods on a parameter):
             a. in unboundMR(), code a Predicate lambda typed for String that checks to see if
             the string passed in is empty.
@@ -103,7 +103,7 @@ public class LambdaAndMethodReferences {
         System.out.printf("unboundMR() -> biPredIsEmptyMetRef : %s starts with %s %s %n", "Mr. Joe Bloggs", "Ms.", biPredIsEmptyMetRef.test("Mr. Joe Bloggs", "Ms."));
     }
 
-    /**
+    /*
         4. Constructor method references:
             a. in constructorMR(), code a Supplier typed for List<String> that returns a new
             ArrayList.

@@ -13,10 +13,8 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-public class BasicLambdas
-{
-    public static void main( String[] args )
-    {
+public class BasicLambdas {
+    public static void main(String[] args) {
         consumer();
         suplier();
         predicate();
@@ -24,11 +22,8 @@ public class BasicLambdas
 
         List<Person> listPeople = getPeople();
         sortAge(listPeople);
-
         sortName(listPeople);
-
         sortHeight(listPeople);
-
     }
 
     /*
