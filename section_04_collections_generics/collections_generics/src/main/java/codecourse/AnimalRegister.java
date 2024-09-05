@@ -1,4 +1,4 @@
-package lets_get_certified.generics;
+package codecourse;
 
 class Register<T, U, V>{
     private T type;

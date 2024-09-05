@@ -1,4 +1,4 @@
-package lets_get_certified.generics;
+package codecourse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ public class UnboundedWildcard {
         for(Object o:list){
             System.out.println(o);
         }
-        list.add("test"); // <?> implies read-only
+        //list.add("test"); // <?> implies read-only
     }
     public static void main(String[] args) {
         // A different variation
